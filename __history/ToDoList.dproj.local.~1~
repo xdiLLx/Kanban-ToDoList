@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2023/10/22 22:46:29.000.807,=C:\Users\GabrielDill\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2023/11/16 22:56:07.000.317,=C:\Users\GabrielDill\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2024/02/03 22:23:25.000.766,=C:\Users\GabrielDill\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2024/02/03 22:26:57.000.819,C:\Users\GabrielDill\Documents\Embarcadero\Studio\Projects\Unit2.fmx=E:\Meus Projetos\KanbanToDo\View.Main.fmx</Transaction>
+    <Transaction>2024/02/03 22:26:57.000.819,C:\Users\GabrielDill\Documents\Embarcadero\Studio\Projects\Unit2.pas=E:\Meus Projetos\KanbanToDo\View.Main.pas</Transaction>
+    <Transaction>2024/02/03 22:27:18.000.673,C:\Users\GabrielDill\Documents\Embarcadero\Studio\Projects\Project2.dproj=E:\Meus Projetos\KanbanToDo\ToDoList.dproj</Transaction>
+    <Transaction>2024/02/04 01:11:17.000.452,=E:\Meus Projetos\Kanban-ToDoList\src\View\View.Main.pas</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -1,0 +1,70 @@
+object FormLogin: TFormLogin
+  Left = 0
+  Top = 0
+  Caption = 'Login do ToDoList'
+  ClientHeight = 587
+  ClientWidth = 440
+  Position = ScreenCenter
+  Transparency = True
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object rectBase: TRectangle
+    Align = Client
+    Fill.Color = claWhite
+    Size.Width = 440.000000000000000000
+    Size.Height = 587.000000000000000000
+    Size.PlatformDefault = False
+    XRadius = 20.000000000000000000
+    YRadius = 20.000000000000000000
+    object rectTopo: TRectangle
+      Align = Top
+      Corners = [TopLeft, TopRight]
+      Fill.Color = claWhite
+      Sides = [Top, Left, Right]
+      Size.Width = 440.000000000000000000
+      Size.Height = 65.000000000000000000
+      Size.PlatformDefault = False
+      XRadius = 20.000000000000000000
+      YRadius = 20.000000000000000000
+      object btnFechar: TGDCornerButton
+        Align = Right
+        StyledSettings = []
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 380.000000000000000000
+        Position.Y = 10.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 50.000000000000000000
+        Size.Height = 45.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Text = #61453
+        TextSettings.Font.Family = 'Font Awesome 6 Free Solid'
+        TextSettings.Font.Size = 20.000000000000000000
+        TextSettings.Font.StyleExt = {00090000000000000004000000}
+        XRadius = 25.000000000000000000
+        YRadius = 25.000000000000000000
+        ColorSettings.Color = claWhite
+        ColorSettings.StrokeColor = claBlack
+        ColorSettings.ActiveColor = claRed
+        ColorSettings.UseActiveColor = True
+        ColorSettings.ActiveFontColor = claWhite
+        SystemClick = Close
+      end
+    end
+    object TabControl1: TTabControl
+      Align = Client
+      Margins.Left = 5.000000000000000000
+      Margins.Right = 5.000000000000000000
+      Margins.Bottom = 20.000000000000000000
+      Size.Width = 430.000000000000000000
+      Size.Height = 502.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      TabPosition = PlatformDefault
+    end
+  end
+end
