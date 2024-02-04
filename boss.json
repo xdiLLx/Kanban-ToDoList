@@ -1,9 +1,11 @@
 {
-	"name": "boss install https://github.com/xdiLLx/BibliotecaGD--FMX",
+	"name": "KanBan-ToDoList",
 	"description": "",
 	"version": "1.0.0",
 	"homepage": "",
 	"mainsrc": "./src",
 	"projects": [],
-	"dependencies": {}
+	"dependencies": {
+		"https://github.com/xdillx/bibliotecagd--fmx": ">0.0.0"
+	}
 }
