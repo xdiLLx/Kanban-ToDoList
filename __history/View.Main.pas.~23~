@@ -1,0 +1,77 @@
+unit View.Main;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls, GDCornerButton, Winapi.Windows;
+
+type
+  TFormMenuPrincipal = class(TForm)
+    rectBase: TRectangle;
+    rectTopo: TRectangle;
+    rectLateral: TRectangle;
+    rectLogo: TRectangle;
+    rectConteudo: TRectangle;
+    Image1: TImage;
+    lblNomeApp: TLabel;
+    btnMinimizar: TGDCornerButton;
+    btnExpandir: TGDCornerButton;
+    btnFechar: TGDCornerButton;
+    procedure rectTopoMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure rectTopoResized(Sender: TObject);
+  private
+    procedure AplicaBordas;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormMenuPrincipal: TFormMenuPrincipal;
+
+implementation
+
+uses
+  Winapi.Messages;
+
+{$R *.fmx}
+
+procedure TFormMenuPrincipal.rectTopoMouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Single);
+begin
+  Self.StartWindowDrag;
+end;
+
+procedure TFormMenuPrincipal.rectTopoResized(Sender: TObject);
+begin
+  // Verificação para não bugar as bordas arredondas em tela maximizada
+  if Self.WindowState = TWindowState.wsMaximized then
+  begin
+    AplicaBordas;
+  end
+  else
+  begin
+    rectBase.XRadius := 20;
+    rectBase.YRadius := 20;
+    rectLogo.XRadius := 20;
+    rectLogo.YRadius := 20;
+    rectTopo.XRadius := 20;
+    rectTopo.YRadius := 20;
+  end;
+end;
+
+procedure TFormMenuPrincipal.AplicaBordas(aValue: Integer);
+begin
+  rectBase.XRadius := 0;
+  rectBase.YRadius := 0;
+  rectLogo.XRadius := 0;
+  rectLogo.YRadius := 0;
+  rectTopo.XRadius := 0;
+  rectTopo.YRadius := 0;
+end;
+
+end.

@@ -1,0 +1,9 @@
+{
+	"name": "boss install https://github.com/xdiLLx/BibliotecaGD--FMX",
+	"description": "",
+	"version": "1.0.0",
+	"homepage": "",
+	"mainsrc": "./src",
+	"projects": [],
+	"dependencies": {}
+}
