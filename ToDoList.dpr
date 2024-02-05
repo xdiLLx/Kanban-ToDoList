@@ -10,6 +10,7 @@ uses
 
 begin
   Application.Initialize;
+  ReportMemoryLeaksOnShutdown := True;
   Application.CreateForm(TFormLogin, FormLogin);
   Application.CreateForm(TFormMenuPrincipal, FormMenuPrincipal);
   Application.Run;
