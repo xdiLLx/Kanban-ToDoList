@@ -2,7 +2,7 @@ object FormLogin: TFormLogin
   Left = 0
   Top = 0
   Caption = 'Login do ToDoList'
-  ClientHeight = 495
+  ClientHeight = 500
   ClientWidth = 440
   Position = ScreenCenter
   StyleBook = StyleBook1
@@ -15,7 +15,7 @@ object FormLogin: TFormLogin
     Align = Client
     Fill.Color = claWhite
     Size.Width = 440.000000000000000000
-    Size.Height = 495.000000000000000000
+    Size.Height = 500.000000000000000000
     Size.PlatformDefault = False
     XRadius = 20.000000000000000000
     YRadius = 20.000000000000000000
@@ -59,12 +59,337 @@ object FormLogin: TFormLogin
     end
     object rectSignUp: TRectangle
       Align = Client
+      Fill.Color = claWhite
       Margins.Left = 10.000000000000000000
       Margins.Right = 10.000000000000000000
       Margins.Bottom = 20.000000000000000000
       Size.Width = 420.000000000000000000
-      Size.Height = 410.000000000000000000
+      Size.Height = 415.000000000000000000
       Size.PlatformDefault = False
+      Stroke.Kind = None
+      Visible = False
+      object lblBemVindoNovo: TLabel
+        Align = Top
+        StyledSettings = [FontColor]
+        Margins.Top = 15.000000000000000000
+        Position.Y = 15.000000000000000000
+        Size.Width = 420.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Roboto'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Bem Vindo'
+        TabOrder = 1
+      end
+      object lblCrieSuaConta: TLabel
+        Align = Top
+        StyledSettings = [FontColor]
+        Margins.Top = 10.000000000000000000
+        Position.Y = 42.000000000000000000
+        Size.Width = 420.000000000000000000
+        Size.Height = 34.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Roboto'
+        TextSettings.Font.Size = 30.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.HorzAlign = Center
+        Text = 'Crie uma Conta'
+        TabOrder = 5
+      end
+      object lblDescricaoCadastro: TLabel
+        Align = Top
+        StyledSettings = [FontColor]
+        Margins.Left = 20.000000000000000000
+        Margins.Top = 5.000000000000000000
+        Margins.Right = 20.000000000000000000
+        Position.X = 20.000000000000000000
+        Position.Y = 81.000000000000000000
+        Size.Width = 380.000000000000000000
+        Size.Height = 34.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Roboto'
+        TextSettings.HorzAlign = Center
+        Text = 
+          'para ter acesso ao primeiros passos para criar e gerenciar seus ' +
+          'projetos'
+        TabOrder = 4
+      end
+      object rectNomeCompleto: TRectangle
+        Align = Top
+        Margins.Left = 40.000000000000000000
+        Margins.Top = 15.000000000000000000
+        Margins.Right = 40.000000000000000000
+        Position.X = 40.000000000000000000
+        Position.Y = 130.000000000000000000
+        Size.Width = 340.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 2.000000000000000000
+        YRadius = 2.000000000000000000
+        object edtNomeCompleto: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Client
+          StyleLookup = 'Edit1Style1'
+          TabOrder = 0
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 13.000000000000000000
+          Margins.Left = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Size.Width = 330.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = 'Digite seu nome completo'
+          StyledSettings = [Style, FontColor]
+          OnKeyDown = edtNomeCompletoKeyDown
+          OnEnter = edtEmailEnter
+          OnExit = edtEmailExit
+        end
+      end
+      object rectCadastroSenha: TRectangle
+        Align = Top
+        Margins.Left = 40.000000000000000000
+        Margins.Top = 15.000000000000000000
+        Margins.Right = 40.000000000000000000
+        Position.X = 40.000000000000000000
+        Position.Y = 242.000000000000000000
+        Size.Width = 340.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 2.000000000000000000
+        YRadius = 2.000000000000000000
+        object edtCadastroSenha: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Client
+          StyleLookup = 'Edit1Style1'
+          TabOrder = 0
+          Password = True
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 13.000000000000000000
+          Margins.Left = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Size.Width = 291.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = 'Digite sua senha'
+          StyledSettings = [Style, FontColor]
+          OnKeyDown = edtCadastroSenhaKeyDown
+          OnEnter = edtEmailEnter
+          OnExit = edtEmailExit
+        end
+        object btnMostrarSenhaCadastro: TGDCornerButton
+          Align = Right
+          StyledSettings = [Style, FontColor]
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 10.000000000000000000
+          Margins.Bottom = 3.000000000000000000
+          Position.X = 304.000000000000000000
+          Position.Y = 3.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 26.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = #61552
+          TextSettings.Font.Family = 'Font Awesome 6 Free Solid'
+          TextSettings.Font.Size = 14.000000000000000000
+          XRadius = 3.000000000000000000
+          YRadius = 3.000000000000000000
+          OnClick = btnMostrarSenhaClick
+          ColorSettings.Color = claNull
+          ColorSettings.StrokeColor = claNull
+          ColorSettings.ActiveColor = claNull
+          ColorSettings.ActiveFontColor = claNull
+          SystemClick = None
+        end
+      end
+      object btnCriarConta: TGDCornerButton
+        Align = Top
+        StyledSettings = []
+        Margins.Left = 40.000000000000000000
+        Margins.Top = 30.000000000000000000
+        Margins.Right = 40.000000000000000000
+        Position.X = 40.000000000000000000
+        Position.Y = 369.000000000000000000
+        Sides = [Top, Left, Bottom, Right]
+        Size.Width = 340.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        Text = 'Criar sua Conta'
+        TextSettings.Font.Family = 'Roboto'
+        TextSettings.Font.Size = 13.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claWhite
+        XRadius = 3.000000000000000000
+        YRadius = 3.000000000000000000
+        ColorSettings.Color = xFF1746C5
+        ColorSettings.StrokeColor = claNull
+        ColorSettings.ActiveColor = xFF3664E1
+        ColorSettings.UseActiveColor = True
+        ColorSettings.ActiveFontColor = claWhite
+        SystemClick = None
+      end
+      object FlowLayout1: TFlowLayout
+        Align = Top
+        Margins.Left = 40.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 40.000000000000000000
+        Position.X = 40.000000000000000000
+        Position.Y = 420.000000000000000000
+        Size.Width = 340.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 7
+        Justify = Center
+        JustifyLastLine = Center
+        FlowDirection = LeftToRight
+        object Line3: TLine
+          Align = Center
+          Anchors = [akLeft, akTop, akRight, akBottom]
+          HitTest = False
+          LineType = Bottom
+          Size.Width = 160.000000000000000000
+          Size.Height = 9.000000000000000000
+          Size.PlatformDefault = False
+        end
+        object Label5: TLabel
+          Align = Center
+          Anchors = [akLeft, akTop, akRight, akBottom]
+          Size.Width = 20.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'ou '
+          TabOrder = 1
+        end
+        object Line4: TLine
+          Align = Left
+          Anchors = [akLeft, akTop, akRight, akBottom]
+          HitTest = False
+          LineType = Bottom
+          Position.X = 180.000000000000000000
+          Size.Width = 160.000000000000000000
+          Size.Height = 9.000000000000000000
+          Size.PlatformDefault = False
+        end
+      end
+      object FlowLayout2: TFlowLayout
+        Align = Top
+        Margins.Left = 40.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 40.000000000000000000
+        Position.X = 40.000000000000000000
+        Position.Y = 447.000000000000000000
+        Size.Width = 340.000000000000000000
+        Size.Height = 17.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 9
+        Justify = Center
+        JustifyLastLine = Center
+        FlowDirection = LeftToRight
+        object Label6: TLabel
+          StyledSettings = [FontColor]
+          Position.X = 42.000000000000000000
+          Size.Width = 106.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 13.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.HorzAlign = Trailing
+          Text = 'Ja '#233' um usu'#225'rio?'
+          TabOrder = 2
+        end
+        object btnAcessarLogin: TGDCornerButton
+          StyledSettings = [Size]
+          Position.X = 148.000000000000000000
+          Sides = [Top, Left, Bottom, Right]
+          Size.Width = 150.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 8
+          Text = 'Clique aqui para acessar'
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = xFF1746C5
+          TextSettings.HorzAlign = Leading
+          XRadius = 3.000000000000000000
+          YRadius = 3.000000000000000000
+          OnClick = btnCadastrarClick
+          ColorSettings.Color = claNull
+          ColorSettings.StrokeColor = claNull
+          ColorSettings.ActiveColor = claNull
+          ColorSettings.UseActiveColor = True
+          ColorSettings.ActiveFontColor = xFF3664E1
+          SystemClick = None
+        end
+      end
+      object rectCadastroEmail: TRectangle
+        Align = Top
+        Margins.Left = 40.000000000000000000
+        Margins.Top = 15.000000000000000000
+        Margins.Right = 40.000000000000000000
+        Position.X = 40.000000000000000000
+        Position.Y = 186.000000000000000000
+        Size.Width = 340.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 2.000000000000000000
+        YRadius = 2.000000000000000000
+        object edtCadastroEmail: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Client
+          StyleLookup = 'Edit1Style1'
+          TabOrder = 0
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 13.000000000000000000
+          Margins.Left = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Size.Width = 330.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = 'Digite seu email'
+          StyledSettings = [Style, FontColor]
+          OnKeyDown = edtCadastroEmailKeyDown
+          OnEnter = edtEmailEnter
+          OnExit = edtEmailExit
+        end
+      end
+      object rectConfirmarSenha: TRectangle
+        Align = Top
+        Margins.Left = 40.000000000000000000
+        Margins.Top = 15.000000000000000000
+        Margins.Right = 40.000000000000000000
+        Position.X = 40.000000000000000000
+        Position.Y = 298.000000000000000000
+        Size.Width = 340.000000000000000000
+        Size.Height = 41.000000000000000000
+        Size.PlatformDefault = False
+        XRadius = 2.000000000000000000
+        YRadius = 2.000000000000000000
+        object edtConfirmarSenha: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Client
+          StyleLookup = 'Edit1Style1'
+          TabOrder = 0
+          Password = True
+          TextSettings.Font.Family = 'Roboto'
+          TextSettings.Font.Size = 13.000000000000000000
+          Margins.Left = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Size.Width = 330.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          TextPrompt = 'Confirme sua senha'
+          StyledSettings = [Style, FontColor]
+          OnKeyDown = edtConfirmarSenhaKeyDown
+          OnEnter = edtEmailEnter
+          OnExit = edtEmailExit
+        end
+      end
     end
     object rectSignIn: TRectangle
       Align = Client
@@ -73,7 +398,7 @@ object FormLogin: TFormLogin
       Margins.Right = 10.000000000000000000
       Margins.Bottom = 20.000000000000000000
       Size.Width = 420.000000000000000000
-      Size.Height = 410.000000000000000000
+      Size.Height = 415.000000000000000000
       Size.PlatformDefault = False
       Stroke.Kind = None
       object rectLogin: TRectangle
@@ -88,7 +413,7 @@ object FormLogin: TFormLogin
         Size.PlatformDefault = False
         XRadius = 2.000000000000000000
         YRadius = 2.000000000000000000
-        object Edit1: TEdit
+        object edtEmail: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Client
           StyleLookup = 'Edit1Style1'
@@ -102,6 +427,9 @@ object FormLogin: TFormLogin
           Size.PlatformDefault = False
           TextPrompt = 'Digite seu email'
           StyledSettings = [Style, FontColor]
+          OnKeyDown = edtEmailKeyDown
+          OnEnter = edtEmailEnter
+          OnExit = edtEmailExit
         end
       end
       object lblBemVindo: TLabel
@@ -164,11 +492,12 @@ object FormLogin: TFormLogin
         Size.PlatformDefault = False
         XRadius = 2.000000000000000000
         YRadius = 2.000000000000000000
-        object Edit2: TEdit
+        object edtSenha: TEdit
           Touch.InteractiveGestures = [LongTap, DoubleTap]
           Align = Client
           StyleLookup = 'Edit1Style1'
           TabOrder = 0
+          Password = True
           TextSettings.Font.Family = 'Roboto'
           TextSettings.Font.Size = 13.000000000000000000
           Margins.Left = 5.000000000000000000
@@ -178,8 +507,11 @@ object FormLogin: TFormLogin
           Size.PlatformDefault = False
           TextPrompt = 'Digite sua senha'
           StyledSettings = [Style, FontColor]
+          OnKeyDown = edtSenhaKeyDown
+          OnEnter = edtEmailEnter
+          OnExit = edtEmailExit
         end
-        object GDCornerButton1: TGDCornerButton
+        object btnMostrarSenha: TGDCornerButton
           Align = Right
           StyledSettings = [Style, FontColor]
           Margins.Left = 3.000000000000000000
@@ -198,6 +530,7 @@ object FormLogin: TFormLogin
           TextSettings.Font.Size = 14.000000000000000000
           XRadius = 3.000000000000000000
           YRadius = 3.000000000000000000
+          OnClick = btnMostrarSenhaClick
           ColorSettings.Color = claNull
           ColorSettings.StrokeColor = claNull
           ColorSettings.ActiveColor = claNull
@@ -321,6 +654,7 @@ object FormLogin: TFormLogin
           TabOrder = 2
         end
         object btnCadastrar: TGDCornerButton
+          CanFocus = False
           StyledSettings = [Size]
           Position.X = 161.500000000000000000
           Sides = [Top, Left, Bottom, Right]
@@ -335,6 +669,7 @@ object FormLogin: TFormLogin
           TextSettings.HorzAlign = Leading
           XRadius = 3.000000000000000000
           YRadius = 3.000000000000000000
+          OnClick = btnCadastrarClick
           ColorSettings.Color = claNull
           ColorSettings.StrokeColor = claNull
           ColorSettings.ActiveColor = claNull

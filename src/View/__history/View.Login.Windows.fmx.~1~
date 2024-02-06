@@ -1,0 +1,31 @@
+inherited FormLogin_Windows: TFormLogin_Windows
+  DesignerMasterStyle = 0
+  inherited rectBase: TRectangle
+    inherited rectSignUp: TRectangle [0]
+    end
+    inherited rectTopo: TRectangle [1]
+      inherited btnFechar: TGDCornerButton
+        TextSettings.Font.StyleExt = {00090000000000000004000000}
+      end
+    end
+    inherited rectSignIn: TRectangle
+      inherited lblBemVindo: TLabel
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited lblAcesseSuaConta: TLabel
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited btnLogin: TGDCornerButton
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+      end
+      inherited flowLayoutCadastrar: TFlowLayout
+        inherited lblNovoUsuario: TLabel
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+        inherited btnCadastrar: TGDCornerButton
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+        end
+      end
+    end
+  end
+end

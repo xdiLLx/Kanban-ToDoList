@@ -1,0 +1,231 @@
+﻿unit View.Login;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Objects,
+  FMX.Controls.Presentation, FMX.StdCtrls, GDCornerButton, FMX.TabControl,
+  FMX.Layouts, FMX.Edit, System.Math;
+
+type
+  TFormLogin = class(TForm)
+    rectBase: TRectangle;
+    rectTopo: TRectangle;
+    btnFechar: TGDCornerButton;
+    rectSignIn: TRectangle;
+    rectSignUp: TRectangle;
+    rectLogin: TRectangle;
+    lblBemVindo: TLabel;
+    lblAcesseSuaConta: TLabel;
+    lblDescricaoLogin: TLabel;
+    rectSenha: TRectangle;
+    btnLogin: TGDCornerButton;
+    lblAlerta: TLabel;
+    flowLayoutOu: TFlowLayout;
+    Line1: TLine;
+    Label1: TLabel;
+    Line2: TLine;
+    flowLayoutCadastrar: TFlowLayout;
+    lblNovoUsuario: TLabel;
+    btnCadastrar: TGDCornerButton;
+    edtEmail: TEdit;
+    edtSenha: TEdit;
+    StyleBook1: TStyleBook;
+    btnMostrarSenha: TGDCornerButton;
+    lblBemVindoNovo: TLabel;
+    lblCrieSuaConta: TLabel;
+    lblDescricaoCadastro: TLabel;
+    rectNomeCompleto: TRectangle;
+    edtNomeCompleto: TEdit;
+    rectCadastroSenha: TRectangle;
+    edtCadastroSenha: TEdit;
+    btnMostrarSenhaCadastro: TGDCornerButton;
+    btnCriarConta: TGDCornerButton;
+    FlowLayout1: TFlowLayout;
+    Line3: TLine;
+    Label5: TLabel;
+    Line4: TLine;
+    FlowLayout2: TFlowLayout;
+    Label6: TLabel;
+    btnAcessarLogin: TGDCornerButton;
+    rectCadastroEmail: TRectangle;
+    edtCadastroEmail: TEdit;
+    rectConfirmarSenha: TRectangle;
+    edtConfirmarSenha: TEdit;
+    procedure rectTopoMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure btnMostrarSenhaClick(Sender: TObject);
+    procedure btnCadastrarClick(Sender: TObject);
+    procedure edtEmailEnter(Sender: TObject);
+    procedure edtEmailExit(Sender: TObject);
+    procedure edtEmailKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
+    procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
+  private
+    procedure MostrarSenha(Sender: TObject);
+    procedure MudarEntrada(Sender: TObject);
+    procedure MudarVisibilidade(aBotao: TGDCornerButton; aEdit: TEdit);
+    procedure LimparCampos(aTela: TRectangle);
+    procedure HabilitarFoco(Sender: TObject; const aAtivar: Boolean = True);
+    procedure Focar(aEdit: TEdit); overload;
+    procedure Focar(aBotao: TGDCornerButton); overload;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormLogin: TFormLogin;
+
+implementation
+
+{$R *.fmx}
+{$R *.Windows.fmx MSWINDOWS}
+
+procedure TFormLogin.btnCadastrarClick(Sender: TObject);
+begin
+  MudarEntrada(Sender);
+end;
+
+procedure TFormLogin.btnMostrarSenhaClick(Sender: TObject);
+begin
+  MostrarSenha(Sender);
+end;
+
+procedure TFormLogin.edtEmailEnter(Sender: TObject);
+begin
+  HabilitarFoco(Sender);
+end;
+
+procedure TFormLogin.edtEmailExit(Sender: TObject);
+begin
+  HabilitarFoco(Sender, False);
+end;
+
+procedure TFormLogin.edtEmailKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  if (Key in [vkReturn, vkTab]) then
+  begin
+    Focar(edtSenha);
+  end;
+end;
+
+procedure TFormLogin.edtSenhaKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  if (Key in [vkReturn, vkTab]) then
+  begin
+    Focar(btnLogin);
+  end;
+end;
+
+procedure TFormLogin.Focar(aBotao: TGDCornerButton);
+begin
+  aBotao.SetFocus;
+end;
+
+procedure TFormLogin.Focar(aEdit: TEdit);
+begin
+  aEdit.SetFocus;
+end;
+
+procedure TFormLogin.HabilitarFoco(Sender: TObject;
+  const aAtivar: Boolean = True);
+var
+  lParentRectangle: TRectangle;
+begin
+  if Sender is TEdit then
+  begin
+    lParentRectangle := TEdit(Sender).Parent as TRectangle;
+    if Assigned(lParentRectangle) then
+    begin
+      if aAtivar then
+      begin
+        lParentRectangle.Stroke.Color := $FF1746C5;
+        lParentRectangle.Stroke.Thickness := 2;
+      end
+      else
+      begin
+        lParentRectangle.Stroke.Color := TAlphaColorRec.Black;
+        lParentRectangle.Stroke.Thickness := 1;
+      end;
+    end;
+  end;
+end;
+
+procedure TFormLogin.MudarVisibilidade(aBotao: TGDCornerButton; aEdit: TEdit);
+begin
+  if aBotao.Text = '' then
+  begin
+    aBotao.Text := '';
+    aEdit.Password := False;
+  end
+  else
+  begin
+    aBotao.Text := '';
+    aEdit.Password := True;
+  end;
+end;
+
+procedure TFormLogin.MostrarSenha(Sender: TObject);
+begin
+  if Sender is TGDCornerButton then
+  begin
+    if (Sender as TGDCornerButton).Name = 'btnMostrarSenha' then
+      MudarVisibilidade(btnMostrarSenha, edtSenha)
+    else if (Sender as TGDCornerButton).Name = 'btnMostrarSenhaCadastro' then
+      MudarVisibilidade(btnMostrarSenhaCadastro, edtCadastroSenha);
+  end;
+end;
+
+procedure TFormLogin.MudarEntrada(Sender: TObject);
+begin
+  if Sender is TGDCornerButton then
+  begin
+    // Se o clique foi pelo botão cadastrar, muda para a tela de Cadastro
+    if TGDCornerButton(Sender).Name = 'btnCadastrar' then
+    begin
+      rectSignIn.Visible := False;
+      rectSignUp.Visible := True;
+      Self.Height := 620;
+      edtNomeCompleto.SetFocus;
+      LimparCampos(rectSignIn);
+    end
+    else
+    // Se não muda para a tela de Login
+    begin
+      rectSignIn.Visible := True;
+      rectSignUp.Visible := False;
+      Self.Height := 500;
+      edtEmail.SetFocus;
+      LimparCampos(rectSignUp);
+    end;
+  end;
+end;
+
+procedure TFormLogin.LimparCampos(aTela: TRectangle);
+var
+  Child: TFmxObject;
+begin
+  // Faz um For passando por todos os campos Edit e deixando o valor em branco
+  for Child in aTela.Children do
+  begin
+    if Child is TEdit then
+      TEdit(Child).Text := ''
+    else if Child is TRectangle then
+      // Caso seja um Rectangle faz uma chamada recursiva para verificar dentro dele
+      LimparCampos(TRectangle(Child));
+  end;
+end;
+
+procedure TFormLogin.rectTopoMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
+begin
+  Self.StartWindowDrag;
+end;
+
+end.
